@@ -2,8 +2,7 @@ import { styled } from '@mui/system';
 import { Card } from "@mui/material";
 
 export const IncomeCard = styled(Card)({
-    color: 'white',
-    backgroundColor:'#3D6F10',
+    backgroundColor:'white',
     padding: 12,
     borderRadius: 4,
   });

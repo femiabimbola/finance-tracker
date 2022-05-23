@@ -11,7 +11,7 @@ const Main = () => {
                 <Typography> Total balance N900</Typography>
                 <Typography> Input in words</Typography>
                 <Divider />
-                < Form />
+                <Form />
             </CardContent>
             <CardContent>
                 <Grid container>

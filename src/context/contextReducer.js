@@ -4,7 +4,7 @@
 // Also, let's talk about reassigning
 
 const contextReducer = ( state, action) => {
-    let transactions
+    let transactions;
 
     switch(action.type) {
         case 'DELETE_TRANSACTION':

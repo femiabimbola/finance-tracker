@@ -17,6 +17,7 @@ const Form = () => {
     // Can a grid item be a container and an item alltogether
     const [formData, setFormData] = useState(initialState)
     const {addTransaction} = useContext(ExpenseTrackerContext);
+    console.log(formData);
 
     const createTransaction = () => {
         const transaction = {...formData, amount: Number(formData.amount), id: uuid()}
@@ -39,17 +40,17 @@ const Form = () => {
                 <FormControl fullWidth>
                     <InputLabel> Categories </InputLabel>
                     <Select value={formData.category} onChange={(e)=> setFormData({...formData, category:e.target.value})}>
-                        <MenuItem fullwidth value='Salary'> Salary </MenuItem>
-                        <MenuItem fullwidth value='Business'> Business </MenuItem>
-                        <MenuItem fullwidth value='Gift'> Gift </MenuItem>
+                        <MenuItem value='Salary'> Salary </MenuItem>
+                        <MenuItem value='Business'> Business </MenuItem>
+                        <MenuItem value='Gift'> Gift </MenuItem>
                     </Select>
-                 </FormControl>
+                </FormControl>
             </Grid>
             <Grid item xs={6}>
-                <TextField fullWidth type='number' label='amount' value={formData.amount} onChange={(e)=> setFormData({...formData, amount:e.target.value})} />
+                <TextField variant="standard" fullWidth type='number' label='amount' value={formData.amount} onChange={(e)=> setFormData({...formData, amount:e.target.value})} />
             </Grid>
             <Grid item xs={6}>
-                <TextField fullWidth type='date' label='date' value={formData.date} onChange={(e)=> setFormData({...formData, date:e.target.value})}/>
+                <TextField  variant="standard" fullWidth type='date' label='date' value={formData.date} onChange={(e)=> setFormData({...formData, date:e.target.value})}/>
             </Grid>
             <ButtonStyle variant='outlined' onClick={createTransaction}> Create Transaction </ButtonStyle>
         </Grid>

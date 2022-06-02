@@ -17,7 +17,6 @@ const Form = () => {
     // Can a grid item be a container and an item alltogether
     const [formData, setFormData] = useState(initialState)
     const {addTransaction} = useContext(ExpenseTrackerContext);
-    console.log(formData);
 
     const createTransaction = () => {
         const transaction = {...formData, amount: Number(formData.amount), id: uuid()}
@@ -26,7 +25,7 @@ const Form = () => {
     }
 
     return(
-        <Grid container>
+        <Grid container spacing={1}>
             <Grid item xs={6}>
                 <FormControl fullWidth>
                     <InputLabel> Select </InputLabel>

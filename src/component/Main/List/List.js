@@ -4,18 +4,34 @@ import {Delete, MoneyOff} from "@mui/icons-material";
 
 import { ExpenseTrackerContext } from '../../../context/Context';
 
+const listStyle = {
+    maxHeight: '150px', 
+    overflow: 'auto',
+}
 
-const List = () => {
+const avatarIncome = {
+    color: "white",
+    backgroundColor: "green",
+}
+
+const avatarExpense = {
+    color: "white",
+    backgroundColor: "red",
+}
+
+const List = () => { 
  const {deleteTransaction, transactions} =  useContext(ExpenseTrackerContext)
 
     return (
-        <MuiList dense={false} sx={{maxHeight: '150px', overflow: 'auto',}}>
+        <MuiList dense={false} sx={listStyle}>
             {transactions.map((transaction) => (
-               // <Slide direction='down' key={transaction.id} in mountOnEnter>
+               //<Slide direction='down' key={transaction.id} in mountOnEnter unmountOnExit>
                     <>
-                    <ListItem>
+                    <ListItem >
                         <ListItemAvatar> 
-                            <Avatar> <MoneyOff/> </Avatar> 
+                            <Avatar sx= { transaction.type === 'Income'? avatarIncome : avatarExpense }> 
+                            <MoneyOff/> 
+                            </Avatar> 
                         </ListItemAvatar>
                         <ListItemText primary={transaction.category} secondary={`$${transaction.amount} - ${transaction.date}`} />
                         <ListItemSecondaryAction>
@@ -26,7 +42,7 @@ const List = () => {
                     </ListItem>
                     <Divider />
                     </>
-               // </Slide>
+                //</Slide>
             ))}
         </MuiList>
     )

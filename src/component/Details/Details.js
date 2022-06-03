@@ -6,9 +6,7 @@ import {IncomeCard} from "./styles";
     borderBottom:'10px solid rgba(0, 255, 0, 0.6)',
     };
 
-const style2 = {
-        borderBottom:'10px solid rgba(255, 0, 0, 0.6)',
-        };
+const style2 = { borderBottom:'10px solid rgba(255, 0, 0, 0.6)'};
 
 export const IncomeDetail = ({title, amount}) => {
     return(

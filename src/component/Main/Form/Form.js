@@ -46,10 +46,10 @@ const Form = () => {
                 </FormControl>
             </Grid>
             <Grid item xs={6}>
-                <TextField variant="standard" fullWidth type='number' label='amount' value={formData.amount} onChange={(e)=> setFormData({...formData, amount:e.target.value})} />
+                <TextField fullWidth type='number' label='amount' value={formData.amount} onChange={(e)=> setFormData({...formData, amount:e.target.value})} />
             </Grid>
             <Grid item xs={6}>
-                <TextField  variant="standard" fullWidth type='date' label='date' value={formData.date} onChange={(e)=> setFormData({...formData, date:e.target.value})}/>
+                <TextField  fullWidth type='date' label='date' value={formData.date} onChange={(e)=> setFormData({...formData, date:e.target.value})}/>
             </Grid>
             <ButtonStyle variant='outlined' onClick={createTransaction}> Create Transaction </ButtonStyle>
         </Grid>

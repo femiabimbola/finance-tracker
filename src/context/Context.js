@@ -1,9 +1,8 @@
 import React, { createContext, useReducer } from "react";
-// import ContextReducer from './contextReducer';
+
 
 const initalState = [];
 export const ExpenseTrackerContext = createContext(initalState);
-
 
 const expenseReducer = ( state, action) => {
     let transactions;
@@ -31,8 +30,6 @@ export const Provider = ({ children }) => {
         const addTransaction = (transaction) => {
             dispatch({type:'ADD_TRANSACTION', payload:transaction})
         }
-
-        console.log(transactions);
 
     return (
         <ExpenseTrackerContext.Provider value ={{ addTransaction, deleteTransaction, transactions}}>

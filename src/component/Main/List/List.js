@@ -5,8 +5,9 @@ import {Delete, MoneyOff} from "@mui/icons-material";
 import { ExpenseTrackerContext } from '../../../context/Context';
 
 const listStyle = {
-    maxHeight: '150px', 
+    maxHeight: '130px', 
     overflow: 'auto',
+    width:'400px'
 }
 
 const avatarIncome = {
@@ -30,10 +31,10 @@ const List = () => {
                     <ListItem >
                         <ListItemAvatar> 
                             <Avatar sx= { transaction.type === 'Income'? avatarIncome : avatarExpense }> 
-                            <MoneyOff/> 
+                                <MoneyOff/> 
                             </Avatar> 
                         </ListItemAvatar>
-                        <ListItemText primary={transaction.category} secondary={`$${transaction.amount} - ${transaction.date}`} />
+                        <ListItemText sx= {{width:'100%'}} primary={transaction.category} secondary={`$${transaction.amount} - ${transaction.date}`} />
                         <ListItemSecondaryAction>
                             <IconButton onClick={()=> deleteTransaction(transaction.id)} edge='end' aria-label='delete'>
                                 <Delete />

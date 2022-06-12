@@ -12,8 +12,8 @@ const initialState = {
     amount: '',
     type: '',
     category: '',
-    // date: new Date().toString()
-    date:formatDate(new Date()),
+    date: new Date().toString(),
+    // date:formatDate(new Date()),
 }
 
 
@@ -43,7 +43,7 @@ const Form = () => {
             </Grid>
             <Grid item xs={6}>
                 <FormControl fullWidth>
-                    <InputLabel> Categories </InputLabel>
+                    <InputLabel> Category </InputLabel>
                     <Select value={formData.category} onChange={(e)=> setFormData({...formData, category:e.target.value})}>
                        {selectedCategory.map(c => <MenuItem value={c.type} key={c.type}> {c.type} </MenuItem>)}
                     </Select>
@@ -53,7 +53,7 @@ const Form = () => {
                 <TextField fullWidth type='number' label='amount' value={formData.amount} onChange={(e)=> setFormData({...formData, amount:e.target.value})} />
             </Grid>
             <Grid item xs={6}>
-                <TextField  fullWidth type='date' label='date' value={formData.date} onChange={(e)=> setFormData({...formData, date:formatDate(e.target.value)})}/>
+                <TextField  fullWidth type='date' label='date' value={formData.date} onChange={(e)=> setFormData({...formData, date:e.target.value})}/>
             </Grid>
             <ButtonStyle variant='outlined' onClick={createTransaction}> Create Transaction </ButtonStyle>
         </Grid>

@@ -5,24 +5,27 @@ import { incomeCategories, expenseCategories, resetCategories } from "./constant
 
 const useTransaction = (title) => {
     resetCategories();
-    const {transaction }= useContext(ExpenseTrackerContext);
-    const transactionType = transaction.filter((t) => t.type === title ) // Picks only transactions with income or expense
+    const {transactions } = useContext(ExpenseTrackerContext);
+    const transactionType = transactions.filter((t) => t.type === title ) // Picks only transactions with income or expense
     const total = transactionType.reduce((acc, currentValue) => acc += currentValue.amount, 0);
     const categories = title === 'Income' ? incomeCategories : expenseCategories;
     
+
     transactionType.forEach((t) => {
        const category = categories.find((c) => c.type === t.category) 
        if (category) category.amount += t.amount;
     })
 
-    const filteredCategories = categories.filter(c => c.amount > 0);// Thats what the chart needs
+    const filteredCategories = categories.filter((c) => c.amount > 0);// Thats what the chart needs
+
+    console.log(filteredCategories)
 
     const chartData = {
-        dataset:[{
+        datasets:[{
             data: filteredCategories.map((c) => c.amount),
             backgroundColor:filteredCategories.map((c) => c.color)
         }],
-        label: filteredCategories.map(c => c.type)
+        labels: filteredCategories.map(c => c.type)
     }
     return { filteredCategories, total, chartData }
 }

@@ -25,6 +25,8 @@ const Form = () => {
     const selectedCategory = formData.type === 'Income'? incomeCategories : expenseCategories;
 
     const createTransaction = () => {
+        if(Number.isNaN(Number(formData.amount)) || formData.date.includes('/')) return;
+
         const transaction = {...formData, amount: Number(formData.amount), id: uuid()}
         addTransaction(transaction);
         setFormData(initialState)

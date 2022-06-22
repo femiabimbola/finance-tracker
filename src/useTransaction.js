@@ -18,7 +18,6 @@ const useTransaction = (title) => {
 
     const filteredCategories = categories.filter((c) => c.amount > 0);// Thats what the chart needs
 
-    console.log(filteredCategories)
 
     const chartData = {
         datasets:[{
